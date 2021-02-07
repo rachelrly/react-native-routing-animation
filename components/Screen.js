@@ -1,15 +1,20 @@
 import React from 'react'
 import {View, TouchableOpacity, Text, StyleSheet, Dimensions} from 'react-native'
 import {useRandomColor} from '../hooks/hooks'
+import {useNavigation} from '@react-navigation/native'
 
 
-
-export default function Screen(){
+export default function Screen(props){
+    const navigation = useNavigation()
     const backgroundColor = useRandomColor()
     const height = Dimensions.get("window").height
     return(
         <View style={styles.wrapper, {backgroundColor, height}}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+            title='Next' 
+            style={styles.button}
+            onPress={()=>navigation.navigate('Next')}
+            >
                 <Text>Next</Text>
             </TouchableOpacity>
         </View>

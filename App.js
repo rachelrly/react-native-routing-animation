@@ -11,10 +11,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Home' component={Screen} />
-        <Stack.Screen name='AfterHome' component={Screen} />
-        <Stack.Screen name='Next' component={Screen} />
-        <Stack.Screen name='AfterNext' component={Screen} />
+        <Stack.Screen name='Home' component={Screen} options={{n:'AfterHome'}}/>
+        <Stack.Screen name='AfterHome' component={Screen} options={{n:'Next'}}/>
+        <Stack.Screen name='Next' component={Screen} options={{n:'AfterNext'}}/>
+        <Stack.Screen name='AfterNext' component={Screen} options={{n:'Home'}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
