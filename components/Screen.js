@@ -1,23 +1,32 @@
 import React from 'react'
 import {View, TouchableOpacity, Text, StyleSheet, Dimensions} from 'react-native'
-import {useRandomColor} from '../hooks/hooks'
+import {useNavigationRoute} from '../hooks/hooks'
 import {useNavigation} from '@react-navigation/native'
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures'
+
 
 
 export default function Screen(props){
     const navigation = useNavigation()
-    const backgroundColor = useRandomColor()
+    const {color, next} = useNavigationRoute(props.route.name)
     const height = Dimensions.get("window").height
+
+
     return(
-        <View style={styles.wrapper, {backgroundColor, height}}>
+        <GestureRecognizer
+        onSwipeLeft={()=>navigation.navigate(next)}
+        onSwipeRight={()=>navigation.navigate(next)}
+        >
+        <View style={styles.wrapper, {backgroundColor: color, height}}>
             <TouchableOpacity
             title='Next' 
             style={styles.button}
-            onPress={()=>navigation.navigate('Next')}
+            onPress={()=>navigation.navigate(next)}
             >
                 <Text>Next</Text>
             </TouchableOpacity>
         </View>
+        </GestureRecognizer>
     )
 
 }

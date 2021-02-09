@@ -10,11 +10,11 @@ const Stack = createStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Home' component={Screen} options={{n:'AfterHome'}}/>
-        <Stack.Screen name='AfterHome' component={Screen} options={{n:'Next'}}/>
-        <Stack.Screen name='Next' component={Screen} options={{n:'AfterNext'}}/>
-        <Stack.Screen name='AfterNext' component={Screen} options={{n:'Home'}}/>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name='Home' component={Screen} options={{next:'AfterHome'}}/>
+        <Stack.Screen name='AfterHome' component={Screen} options={{next:'Next'}}/>
+        <Stack.Screen name='Next' component={Screen} options={{next:'AfterNext'}}/>
+        <Stack.Screen name='AfterNext' component={Screen} options={{next:'Home'}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
