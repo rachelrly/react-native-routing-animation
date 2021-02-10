@@ -11,20 +11,13 @@ export default function Screen(props){
     const {color, next} = useNavigationRoute(props.route.name)
     const height = Dimensions.get("window").height
 
-
     return(
         <GestureRecognizer
-        onSwipeLeft={()=>navigation.navigate(next)}
-        onSwipeRight={()=>navigation.navigate(next)}
+            onSwipeLeft={()=>navigation.navigate(next)}
+            onSwipeRight={()=>navigation.navigate(next)}
         >
         <View style={styles.wrapper, {backgroundColor: color, height}}>
-            <TouchableOpacity
-            title='Next' 
-            style={styles.button}
-            onPress={()=>navigation.navigate(next)}
-            >
-                <Text>Next</Text>
-            </TouchableOpacity>
+            
         </View>
         </GestureRecognizer>
     )
